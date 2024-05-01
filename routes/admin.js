@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET users listing. */
 router.get('/', function (req, res, next) {
   let products = [
     {
@@ -29,7 +29,11 @@ router.get('/', function (req, res, next) {
       image: 'https://image.oppo.com/content/dam/oppo/common/mkt/v2-2/reno11-5g-en/listpage/reno11-427-600-green.png.thumb.webp'
     }
   ]
-  res.render('index', {products, admin:true});
+  res.render('admin/view-products', {products, admin: true });
+});
+
+router.get('/add-product',function(req,res){
+  res.render('admin/add-product')
 });
 
 module.exports = router;
